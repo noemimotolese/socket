@@ -31,11 +31,14 @@ while True:
 
     if operazione == "+":
         reply = int((primoNumero + secondoNumero))
-    if operazione == "-":
+    elif operazione == "-":
         reply = int((primoNumero - secondoNumero))
-    if operazione == "*":
+    elif operazione == "*":
         reply = int((primoNumero * secondoNumero))
-    if operazione == "/":
-        reply = int((primoNumero / secondoNumero))
+    elif operazione == "/":
+        if secondoNumero == 0:
+            reply = "Errore: divisione per zero"
+        else:
+            reply = primoNumero / secondoNumero
 
     sock.sendto(str(reply).encode(), addr)
